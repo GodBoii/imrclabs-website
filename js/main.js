@@ -75,7 +75,7 @@ function initMobileNav() {
  */
 function initScrollEffects() {
     // Get all elements that should be animated on scroll
-    const elements = document.querySelectorAll('.service-card, .feature, .client-logo, .project-card, .section-header');
+    const elements = document.querySelectorAll('.service-card, .service-category-card, .feature, .client-logo, .project-card, .section-header');
     
     // Create an Intersection Observer
     const observer = new IntersectionObserver((entries) => {

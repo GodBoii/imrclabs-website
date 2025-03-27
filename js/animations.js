@@ -12,7 +12,70 @@ document.addEventListener('DOMContentLoaded', function() {
         initParallaxEffects();
         initParticles();
     }
+    gsap.registerPlugin(ScrollTrigger);
+    initScrollReveal();
+    initHeroStrataParallax();
 });
+
+/**
+ * Hero Section: Layered Earth Strata Parallax using GSAP ScrollTrigger
+ */
+function initHeroStrataParallax() {
+    // Select the layers
+    const layers = gsap.utils.toArray(".hero-layer");
+    if (!layers.length) return; // Exit if no layers found
+
+    // Create a GSAP Timeline attached to ScrollTrigger
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".hero",       // Element that triggers the animation
+            start: "top top",       // When the top of ".hero" hits the top of the viewport
+            end: "bottom top",      // When the bottom of ".hero" hits the top of the viewport
+            scrub: true,            // Smoothly scrubs animation based on scroll position (true or a number like 1)
+            // markers: true,       // Uncomment for debugging ScrollTrigger start/end points
+        }
+    });
+
+    // Define the parallax speeds for each layer
+    // Higher positive yPercent means it moves down faster (appears faster scrolling up)
+    // Adjust these values to get the desired depth effect
+    const speeds = {
+        layer1: 50, // Optional Overlay - Fastest
+        layer2: 40, // Soil - Fast
+        layer3: 25, // Clay - Moderate
+        layer4: 10  // Rock - Slowest (Deepest)
+    };
+
+    // Add animations to the timeline for each layer
+    layers.forEach(layer => {
+        let speed;
+        if (layer.classList.contains('layer-1')) speed = speeds.layer1;
+        else if (layer.classList.contains('layer-2')) speed = speeds.layer2;
+        else if (layer.classList.contains('layer-3')) speed = speeds.layer3;
+        else if (layer.classList.contains('layer-4')) speed = speeds.layer4;
+        else speed = 0; // Default if class is missing
+
+        if (speed > 0) {
+            tl.to(layer, {
+                yPercent: speed, // Move layer down by this percentage of its height
+                ease: "none"     // Linear easing for direct scrub correlation
+            }, 0); // The '0' makes all layer animations start at the same time in the timeline
+        }
+    });
+
+    // Optional: Animate hero text slightly differently if needed
+    // Example: Make text move up slightly slower than scroll
+    // tl.to(".hero-content", {
+    //     yPercent: -5, // Moves up slower than the scroll
+    //     ease: "none"
+    // }, 0);
+
+     // Add initial text animations (run once on load, not tied to scroll scrub)
+     gsap.from(".hero-content h1", { opacity: 0, y: 30, duration: 1, delay: 0.5 });
+     gsap.from(".hero-content h2", { opacity: 0, y: 30, duration: 1, delay: 0.8 });
+     gsap.from(".hero-cta", { opacity: 0, y: 30, duration: 1, delay: 1.1 });
+
+}
 
 /**
  * Special animations for the hero section
@@ -60,38 +123,75 @@ function initHeroAnimations() {
  * Parallax scrolling effects
  */
 function initParallaxEffects() {
-    // Add parallax effect to sections with background
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset;
-        
-        // Parallax effect for the hero section
+
+        // Parallax effect for the hero section background image
         const hero = document.querySelector('.hero');
         if (hero) {
-            // Apply a slower scroll to the background
-            hero.style.backgroundPositionY = `${scrollTop * 0.5}px`;
+            // Apply a slower scroll to the main background image
+            // The 'background-position' might conflict with the 'moveGrid' animation
+            // Let's adjust the background position directly instead of backgroundPositionY
+            let offset = scrollTop * 0.4; // Adjust multiplier for desired parallax speed
+            hero.style.backgroundPosition = `center ${50 + offset}px`;
+             // Or keep simpler Y offset: hero.style.backgroundPositionY = `${offset}px`; Choose one.
         }
-        
-        // Subtle parallax for other sections
+
+        // Subtle parallax for other sections (Keep this if you like it)
         const sections = document.querySelectorAll('.cta-section, .why-choose-us');
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
-            
-            // Check if section is in view
-            if (scrollTop + window.innerHeight > sectionTop && 
+
+            if (scrollTop + window.innerHeight > sectionTop &&
                 scrollTop < sectionTop + sectionHeight) {
-                
-                // Calculate how far through the section we've scrolled
-                const scrollProgress = (scrollTop + window.innerHeight - sectionTop) / 
+                const scrollProgress = (scrollTop + window.innerHeight - sectionTop) /
                                       (window.innerHeight + sectionHeight);
-                
-                // Apply subtle movement
-                section.style.backgroundPositionY = `${50 + (scrollProgress * 10)}%`;
+                // Adjust background position based on scroll progress
+                 section.style.backgroundPositionY = `${50 + (scrollProgress * -10)}%`; // Example: moves up
             }
         });
     });
 }
 
+function initScrollReveal() {
+    const elementsToReveal = document.querySelectorAll('.service-card, .service-category-card, .feature, .client-logo, .project-card, .section-header, .value-card, .leader-profile, .team-description, .client-card, .testimonial, .office-card, .project-detail, .service-subcategory');
+
+    // Ensure reveal styles are injected (only once)
+    if (!document.querySelector('style[data-reveal-style]')) {
+        const style = document.createElement('style');
+        style.setAttribute('data-reveal-style', 'true');
+        style.textContent = `
+            .reveal-hidden {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+            .reveal-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+                entry.target.classList.remove('reveal-hidden');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    elementsToReveal.forEach(el => {
+        el.classList.add('reveal-hidden');
+        observer.observe(el);
+    });
+}
 /**
  * Create particle effect in the hero section
  */
@@ -204,7 +304,7 @@ function initParticles() {
 document.addEventListener('DOMContentLoaded', function() {
     const style = document.createElement('style');
     style.textContent = `
-        .service-card, .feature, .client-logo, .project-card, .section-header {
+        .service-card, .service-category-card, .feature, .client-logo, .project-card, .section-header {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;

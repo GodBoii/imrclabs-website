@@ -37,6 +37,74 @@
     color: var(--accent-color);
 }
 
+/* Service Category Cards */
+.services-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.service-category-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 40px;
+    text-align: center;
+    transition: transform var(--transition-speed);
+}
+
+.service-category-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-category-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.service-category-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-gray);
+}
+
+.service-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.service-highlights li {
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+}
+
+.service-highlights li:before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+.service-category-card .btn {
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .services-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-category-card {
+        padding: 30px;
+    }
+}
+
 /* Feature Cards */
 .feature {
     padding: 20px;
