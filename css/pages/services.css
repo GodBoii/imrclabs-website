@@ -1,98 +1,99 @@
-/* Services page specific styles */
-.services-container {
-    padding: 30px 0;
+/* css/pages/services.css */
+
+.services-main-category {
+    padding: 60px 0; /* Adjusted padding for main categories */
 }
 
-.service-category {
-    margin-bottom: 60px;
+/* Style for the main category section header (if different from default) */
+.services-main-category .section-header {
+    margin-bottom: 40px;
+}
+.services-main-category .section-header h2 {
+    font-size: 2.2rem; /* Slightly smaller than page title */
+}
+.services-main-category .section-header p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.service-category h2 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent-color);
-}
 
-.service-list {
+/* Container for all subcategories within a main category */
+.service-subcategories {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-.service-item {
-    background-color: white;
+/* Styling for each subcategory block */
+.service-subcategory {
+    background-color: #ffffff;
+    padding: 25px;
     border-radius: 8px;
     box-shadow: var(--shadow);
-    padding: 20px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-item:hover {
+.service-subcategory:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.service-item h3 {
+/* Subcategory titles */
+.service-subcategory h3 {
     color: var(--primary-color);
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
 }
 
-.service-item ul {
+/* Styling for the lists of services */
+.service-subcategory ul {
     padding-left: 20px;
+    margin-top: 10px;
 }
 
-.service-item ul li {
-    margin-bottom: 8px;
-    list-style-type: circle;
+.service-subcategory li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: var(--text-color);
+    list-style-type: disc; /* Use standard bullets */
 }
 
-.accordion {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+/* Specific styling for Chemical Analysis subgroups */
+.chemical-group {
     margin-bottom: 20px;
-    overflow: hidden;
 }
 
-.accordion-header {
-    background-color: var(--light-gray);
-    padding: 15px 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
+.chemical-group:last-child {
+    margin-bottom: 0;
 }
 
-.accordion-header:hover {
-    background-color: var(--medium-gray);
+.chemical-group h4 {
+    color: var(--secondary-color); /* Slightly different color for distinction */
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
-.accordion-header h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: var(--dark-gray);
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .service-subcategories {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+    }
+     .services-main-category .section-header h2 {
+        font-size: 1.8rem;
+    }
+     .services-main-category .section-header p {
+        font-size: 1rem;
+    }
+    .service-subcategory h3 {
+        font-size: 1.2rem;
+    }
 }
 
-.accordion-header i {
-    transition: transform 0.3s ease;
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-.accordion-content-inner {
-    padding: 20px;
-}
-
-.accordion.active .accordion-header i {
-    transform: rotate(180deg);
-}
-
-.accordion.active .accordion-content {
-    max-height: 1000px;
-} 
+/* REMOVE OLD ACCORDION STYLES if they exist in this file */
+/* Remove .accordion, .accordion-header, .accordion-content etc. */

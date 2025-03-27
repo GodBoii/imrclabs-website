@@ -1,0 +1,61 @@
+/* css/components/transitions.css */
+
+#page-transition-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--secondary-color); /* Use a dark color for contrast */
+    z-index: 9999; /* Ensure it's on top */
+    transform: translateX(-100%); /* Start off-screen to the left */
+    transition: transform 0.7s cubic-bezier(0.86, 0, 0.07, 1); /* Smooth animation */
+    pointer-events: none; /* Allow clicks through when hidden */
+}
+
+/* State: Panel slides IN to cover the screen */
+#page-transition-panel.is-active {
+    transform: translateX(0%);
+    pointer-events: auto; /* Block clicks during transition */
+}
+
+/* State: Panel slides OUT to reveal the screen */
+#page-transition-panel.is-leaving {
+    transform: translateX(100%);
+    pointer-events: auto; /* Block clicks during transition */
+}
+
+/* Initial body state to prevent content flash */
+body.page-loading {
+    opacity: 0; /* Hide content initially */
+}
+
+/* Optional: Add slight fade in for body content after panel leaves */
+/* body {
+    opacity: 0;
+    transition: opacity 0.3s ease-in 0.1s;
+}
+
+body.page-loaded {
+    opacity: 1;
+} */
+
+/* Accessibility: Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+    #page-transition-panel {
+        transition: none; /* Disable animation */
+    }
+    /* Optionally provide a simple fade instead */
+    /* #page-transition-panel {
+        transition: opacity 0.3s ease;
+        transform: none !important;
+        opacity: 0;
+    }
+    #page-transition-panel.is-active,
+    #page-transition-panel.is-leaving {
+        opacity: 1;
+    }
+    body.page-loading {
+        opacity: 1;
+    } */
+}

@@ -13,7 +13,7 @@
 @import url('components/navigation.css');
 @import url('components/cards.css');
 @import url('components/footer.css');
-@import url('components/animations.css');
+@import url('components/transitions.css');
 
 /* Import Page Styles */
 @import url('pages/home.css');
