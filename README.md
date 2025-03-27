@@ -1,108 +1,161 @@
 # IMRC - Indian Material Research Center Website
 
-A modern, responsive, and visually appealing website for the Indian Material Research Center (IMRC), a leading organization specializing in material testing and research.
+A modern, responsive, and feature-rich website built for the Indian Material Research Center (IMRC), showcasing their material testing and research services. This project utilizes vanilla HTML, CSS, and JavaScript for the frontend, coupled with a Python Flask backend for contact form processing.
 
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Setup and Installation](#setup-and-installation)
-- [Backend](#backend)
 - [Browser Compatibility](#browser-compatibility)
-- [Performance Optimization](#performance-optimization)
+- [Performance and Animations](#performance-and-animations)
 - [Credits](#credits)
 
 ## Overview
 
-This website serves as the digital platform for IMRC, presenting their services, projects, clients, and contact information in a user-friendly interface. The website features a modern design, responsive layout, and smooth animations to provide a superior user experience.
+This website serves as the primary digital platform for IMRC. It presents the company's extensive services, notable projects, prestigious clients, and contact information through a clean, professional, and interactive user interface. The site incorporates smooth page transitions and engaging animations to enhance user experience.
 
-### Company Information
+### Company Information (from website content)
 
 **Indian Material Research Center (IMRC)**
-- Established: 2013
-- Headquarters: Kharghar, Navi Mumbai
-- Branch Office: Vikhroli East, Mumbai
-- Specializes in: Material testing, Geotechnical Investigation, NDT, and more
-- Contact: imrc.analysis@yahoo.in | +91 9819446242 / +91 7972209934
+- **Established:** 2013
+- **Headquarters:** Plot No. G-75/76, Sector-12, Kharghar, Navi Mumbai - 410210
+- **Branch Office:** Vikhroli East, Mumbai - 400083
+- **Specializes in:** Geotechnical, Geophysical, Geological Investigations, Traffic Surveys, Non-Destructive Testing (NDT), Pavement Design, Concrete Mix Design, Material Testing (Soil, Rock, Building Materials, Chemicals), Engineering & Structural Assessments.
+- **Contact:** imrc.analysis@yahoo.in | +91 9819446242 / +91 7972209934
 
 ## Features
 
-- **Responsive Design**: Fully responsive layout that adapts to all screen sizes (mobile, tablet, laptop, desktop)
-- **Modern UI**: Clean and professional design with a color scheme that inspires trust and precision
-- **Animated Elements**: Subtle animations for enhanced user experience
-- **Interactive Elements**: Dynamic navigation, form validation, accordions, and more
-- **Performance Optimized**: Fast loading, optimized images, and efficient code
-- **Contact Form**: Client-side validated form with backend integration capability
-- **Google Maps Integration**: Office locations displayed with embedded Google Maps
-- **SEO Friendly**: Proper meta tags, structured content, and semantic HTML
+-   **Responsive Design**: Adapts seamlessly across desktops, laptops, tablets, and mobile devices.
+-   **Modern UI/UX**: Clean, professional design using CSS variables, a well-defined color scheme, and intuitive navigation.
+-   **Smooth Page Transitions**: Full-screen slide transitions between page loads for a fluid experience.
+-   **Engaging Animations**:
+    -   Scroll-triggered "appear" animations for various elements (using Intersection Observer).
+    *   Advanced hero section animations (on larger screens): subtle floating text, background parallax, interactive mouse-follow effect, and a canvas-based particle system.
+-   **Comprehensive Service Display**: Detailed, categorized listing of all testing services offered by IMRC.
+-   **Project Showcase**: Dedicated page featuring detailed descriptions, metadata, services provided, and image galleries for key projects.
+-   **Client Showcase**: Displays client logos in categorized grids, along with client testimonials.
+-   **Interactive Contact Form**:
+    *   Client-side validation using JavaScript.
+    *   Asynchronous submission to a backend API.
+    *   Real-time status updates (sending, success, error).
+    *   Backend processing via Python Flask (sends email notification).
+-   **Google Maps Integration**: Embedded maps showing Head Office and Branch Office locations on the Contact page.
+-   **Dedicated 404 Page**: Custom "Page Not Found" page for better user experience.
+-   **Basic SEO**: Includes relevant meta descriptions and keywords in page headers.
+-   **Modular Codebase**: Well-structured HTML, modular CSS (`@import` structure), and separated JavaScript files based on functionality.
 
 ## Project Structure
-
 ```
 imrc/
-├── index.html               # Home page
-├── about.html               # About page
-├── services.html            # Services page
-├── projects.html            # Projects page
-├── clients.html             # Clients page
-├── contact.html             # Contact page
+├── index.html # Home page
+├── about.html # About page
+├── services.html # Services page
+├── projects.html # Projects page
+├── clients.html # Clients page
+├── contact.html # Contact page
+├── 404.html # Page Not Found page
 ├── css/
-│   └── style.css            # Main stylesheet
+│ ├── style.css # Main stylesheet (imports others)
+│ ├── base.css # Base styles, variables, resets
+│ ├── components/
+│ │ ├── buttons.css
+│ │ ├── cards.css
+│ │ ├── footer.css
+│ │ ├── layout.css
+│ │ ├── navigation.css
+│ │ └── transitions.css
+│ └── pages/
+│ ├── about.css
+│ ├── clients.css
+│ ├── contact.css
+│ ├── home.css
+│ ├── projects.css
+│ └── services.css
 ├── js/
-│   ├── main.js              # Main JavaScript functionality
-│   └── animations.js        # Animation specific JavaScript
-├── images/                  # Image assets
-└── python/                  # Backend for contact form
-    ├── server.py            # Flask server
-    └── requirements.txt     # Python dependencies
+│ ├── main.js # Core functionality (nav, scroll effects)
+│ ├── animations.js # Advanced animations (hero, particles, parallax)
+│ ├── contact.js # Contact form specific logic (validation, fetch API)
+│ └── transitions.js # Page transition logic
+├── images/ # Image assets (e.g., test.png)
+├── python/ # Backend for contact form
+│ ├── server.py # Flask server application
+│ └── requirements.txt # Python dependencies
+├── context.txt # Source text content (reference)
+├── plan.txt # Project Implementation Summary (this file)
+└── README.md # Project README (this file)
 ```
+
 
 ## Setup and Installation
 
 ### Frontend
 
-The website is built with vanilla HTML, CSS, and JavaScript, requiring no build tools or dependencies. To run the website locally:
+The frontend is built with vanilla HTML, CSS, and JavaScript. No build tools are required.
 
-1. Clone this repository
-2. Open any of the HTML files in a web browser
+1.  Clone this repository:
+    ```bash
+    git clone <repository-url>
+    cd imrc
+    ```
+2.  Open any of the `.html` files (e.g., `index.html`) directly in a web browser.
 
-### Backend (Optional)
+### Backend (Contact Form Processing)
 
-The contact form backend is built with Flask. To set up:
+The contact form relies on a Python Flask backend to send email notifications.
 
-1. Install Python 3.6+
-2. Navigate to the python directory
-3. Install dependencies: `pip install -r requirements.txt`
-4. Set environment variables:
-   ```
-   export EMAIL_PASSWORD=your_email_password
-   export PORT=5000  # Optional, defaults to 5000
-   ```
-5. Run the server: `python server.py`
+1.  **Prerequisites:** Ensure you have Python 3.6+ and `pip` installed.
+2.  **Navigate to Backend Directory:**
+    ```bash
+    cd python
+    ```
+3.  **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  **Set Environment Variable:** The backend requires the email password to send notifications. Set it as an environment variable for security (replace `your_actual_yahoo_app_password` with an App Password if using Yahoo Mail with 2FA):
+    *   Linux/macOS:
+        ```bash
+        export EMAIL_PASSWORD='your_actual_yahoo_app_password'
+        ```
+    *   Windows (Command Prompt):
+        ```cmd
+        set EMAIL_PASSWORD=your_actual_yahoo_app_password
+        ```
+    *   Windows (PowerShell):
+        ```powershell
+        $env:EMAIL_PASSWORD='your_actual_yahoo_app_password'
+        ```
+    *Note: If `EMAIL_PASSWORD` is not set, the server will run in development mode and print the email content to the console instead of sending it.*
+5.  **Run the Server:**
+    ```bash
+    python server.py
+    ```
+    The server will start, typically on `http://localhost:5000`. The contact form frontend (`contact.js`) is configured to send requests to this address.
 
 ## Browser Compatibility
 
-The website is compatible with:
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
+The website is designed and tested to be compatible with the latest versions of modern web browsers:
+- Chrome
+- Firefox
+- Safari
+- Edge
+- Opera
 
-## Performance Optimization
+## Performance and Animations
 
-- **Image Optimization**: All images are optimized for web
-- **CSS Efficiency**: Minimized CSS redundancy
-- **JavaScript Performance**: Non-blocking scripts, efficient DOM manipulation
-- **Animation Performance**: Hardware-accelerated animations for smooth performance
-- **Responsive Images**: Appropriate image sizes for different screen resolutions
+-   **CSS:** Modular structure using `@import`, CSS variables for theming, and optimized selectors.
+-   **JavaScript:** Code is separated into logical files. Scroll effects use the efficient `IntersectionObserver`. Advanced animations (`animations.js`) are conditionally loaded only on screens wider than 768px to improve performance on mobile.
+-   **Page Transitions:** Hardware-accelerated CSS transforms are used for smooth slide transitions.
+-   **Images:** Standard image loading; further optimization (e.g., responsive images, modern formats like WebP) could be implemented if needed.
 
 ## Credits
 
-- **Font Awesome**: Icons used throughout the site
-- **Google Fonts**: Typography
-- **Google Maps**: Office location embeds
+-   **Font Awesome**: Icons used throughout the site.
+-   **Google Maps**: Used for embedding office location maps.
+-   **Flask**: Python microframework for the backend API.
+-   **Flask-CORS**: Handles Cross-Origin Resource Sharing for the API.
 
 ---
 
-© 2023 Indian Material Research Center. All rights reserved. 
+© 2023 Indian Material Research Center. All rights reserved.
