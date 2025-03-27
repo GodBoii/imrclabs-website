@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /python/
+
+Sitemap: https://www.imrc.co.in/sitemap.xml 

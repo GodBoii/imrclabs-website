@@ -1,0 +1,127 @@
+/* Clients page specific styles */
+.clients-section {
+    padding: 60px 0;
+}
+
+.client-category {
+    margin-bottom: 60px;
+}
+
+.client-category h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.client-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+}
+
+.client-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.client-logo {
+    height: 80px;
+    width: 80px;
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.client-logo i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.client-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    margin-bottom: 5px;
+}
+
+.client-type {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.testimonial {
+    margin-top: 30px;
+    padding: 30px;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    position: relative;
+}
+
+.testimonial:before {
+    content: '\201C';
+    font-size: 60px;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    color: var(--primary-color);
+    opacity: 0.2;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    text-align: right;
+    font-weight: 600;
+}
+
+.testimonial-company {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .clients-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .client-card {
+        padding: 20px;
+        min-height: 130px;
+    }
+    
+    .client-logo {
+        height: 60px;
+        width: 60px;
+    }
+    
+    .client-logo i {
+        font-size: 1.8rem;
+    }
+    
+    .client-name {
+        font-size: 1rem;
+    }
+} 

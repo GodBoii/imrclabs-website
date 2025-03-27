@@ -1,0 +1,102 @@
+/* Card Components */
+
+/* Service Cards */
+.service-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    text-align: center;
+    transition: transform var(--transition-speed);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--dark-gray);
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.read-more:hover {
+    color: var(--accent-color);
+}
+
+/* Feature Cards */
+.feature {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* Project Cards */
+.project-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: white;
+}
+
+.project-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 15px;
+    transition: all var(--transition-speed);
+}
+
+.project-card:hover .project-overlay {
+    background: linear-gradient(to top, rgba(0, 86, 179, 0.8), transparent);
+}
+
+.project-details {
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .service-card,
+    .feature,
+    .project-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+} 

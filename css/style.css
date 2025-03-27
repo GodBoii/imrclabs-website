@@ -1,0 +1,24 @@
+/* 
+* IMRC - Main Stylesheet
+* Author: IMRC Web Development Team
+* Version: 1.0
+*/
+
+/* Import Base Styles */
+@import url('base.css');
+
+/* Import Component Styles */
+@import url('components/buttons.css');
+@import url('components/layout.css');
+@import url('components/navigation.css');
+@import url('components/cards.css');
+@import url('components/footer.css');
+@import url('components/animations.css');
+
+/* Import Page Styles */
+@import url('pages/home.css');
+@import url('pages/about.css');
+@import url('pages/projects.css');
+@import url('pages/clients.css');
+@import url('pages/contact.css');
+@import url('pages/services.css');
