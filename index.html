@@ -1,0 +1,231 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMRC Labs - Material Testing & Research</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <nav>
+        <div class="logo">IMRC Labs</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li>
+                <a href="services.html">Services</a>
+                <ul class="dropdown">
+                    <li class="has-submenu">
+                        <a href="#">Material Testing & Quality Assurance</a>
+                        <ul class="submenu">
+                            <li><a href="services/soil-testing.html">Soil Testing</a></li>
+                            <li><a href="services/rock-testing.html">Rock Testing</a></li>
+                            <li><a href="services/building-material.html">Building Material Testing</a></li>
+                            <li><a href="services/chemical-analysis.html">Chemical Analysis</a></li>
+                            <li><a href="services/ndt.html">Non-Destructive Testing (NDT)</a></li>
+                            <li><a href="services/concrete-road.html">Concrete & Road Testing</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Engineering & Structural Assessments</a>
+                        <ul class="submenu">
+                            <li><a href="services/pavement-runway.html">Pavement & Runway Testing</a></li>
+                            <li><a href="services/geotechnical.html">Geotechnical Investigation</a></li>
+                            <li><a href="services/structural-health.html">Structural Health Monitoring</a></li>
+                            <li><a href="services/condition-assessment.html">Condition Assessment</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="clients.html">Clients</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="admin/login.html">Admin</a></li>
+        </ul>
+        <div class="burger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <img src="images/test.png" alt="Hero Background">
+        <div class="hero-content">
+            <h1>Your Trusted Partner in Material Testing & Research</h1>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+                <a href="services.html" class="btn btn-secondary">View our Services</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-snippet">
+        <h2>About IMRC Labs</h2>
+        <p>Established in 2013, IMRC Labs specializes in Geotechnical, Geophysical, and Geological Investigations, NDT, and material testing. We are a NABL-accredited lab committed to delivering accurate and reliable results.</p>
+        <a href="about.html" class="btn btn-primary">Learn More</a>
+    </section>
+
+    <section class="services-overview">
+        <h2>Our Services</h2>
+        <div class="main-services-grid">
+            <div class="main-service-category">
+                <i class="fas fa-flask"></i>
+                <h3>Material Testing & Quality Assurance</h3>
+                <p>Our comprehensive testing services ensure compliance with industry standards and quality assurance requirements.</p>
+                <button class="toggle-services" data-target="material-testing-services">View Services</button>
+                <div class="sub-services-grid" id="material-testing-services">
+                    <div class="service-item">
+                        <a href="services/soil-testing.html">
+                            <i class="fas fa-flask"></i>
+                            <p>Soil Testing</p>
+                        </a>
+                    </div>
+                    <div class="service-item">
+                        <a href="services/rock-testing.html">
+                            <i class="fas fa-mountain"></i>
+                            <p>Rock Testing</p>
+                        </a>
+                    </div>
+                    <div class="service-item">
+                        <a href="services/ndt.html">
+                            <i class="fas fa-search-plus"></i>
+                            <p>Non-Destructive Testing (NDT)</p>
+                        </a>
+                    </div>
+                    <div class="service-item">
+                        <a href="services/building-material.html">
+                            <i class="fas fa-building"></i>
+                            <p>Building Material Testing</p>
+                        </a>
+                    </div>
+                    <div class="service-item">
+                        <a href="services/chemical-analysis.html">
+                            <i class="fas fa-vial"></i>
+                            <p>Chemical Analysis</p>
+                        </a>
+                    </div>
+                    <div class="service-item">
+                        <a href="services/concrete-road.html">
+                            <i class="fas fa-drafting-compass"></i>
+                            <p>Concrete & Road Testing</p>
+                        </a>
+                    </div>
+                </div>
+                <a href="services.html" class="btn btn-small">View All Services</a>
+            </div>
+            
+            <div class="main-service-category">
+                <i class="fas fa-tools"></i>
+                <h3>Engineering & Structural Assessments</h3>
+                <p>We provide comprehensive assessment services to ensure the safety and longevity of your infrastructure.</p>
+                <button class="toggle-services" data-target="engineering-services">View Services</button>
+                <div class="sub-services-grid" id="engineering-services">
+                    <div class="service-item">
+                        <a href="services/condition-assessment.html">
+                            <i class="fas fa-tools"></i>
+                            <p>Condition Assessment</p>
+                        </a>
+                    </div>
+                    <div class="service-item">
+                        <a href="services/structural-health.html">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Structural Health Monitoring</p>
+                        </a>
+                    </div>
+                    <div class="service-item">
+                        <a href="services/geotechnical.html">
+                            <i class="fas fa-layer-group"></i>
+                            <p>Geotechnical Investigation</p>
+                        </a>
+                    </div>
+                    <div class="service-item">
+                        <a href="services/pavement-runway.html">
+                            <i class="fas fa-road"></i>
+                            <p>Pavement & Runway Testing</p>
+                        </a>
+                    </div>
+                </div>
+                <a href="services.html" class="btn btn-small">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <h2>Why Choose IMRC Labs?</h2>
+        <ul>
+            <li><i class="fas fa-check-circle"></i> NABL Accredited Lab (ISO/IEC 17025)</li>
+            <li><i class="fas fa-check-circle"></i> Over a Decade of Industry Experience</li>
+            <li><i class="fas fa-check-circle"></i> Advanced Testing Technology</li>
+            <li><i class="fas fa-check-circle"></i> Client-Focused Solutions</li>
+            <li><i class="fas fa-check-circle"></i> Quality & Precision</li>
+        </ul>
+    </section>
+
+    <section class="client-section">
+        <div class="container">
+            <h2>Our Valued Clients</h2>
+            <p class="section-intro">We take pride in serving prestigious clients across various sectors of infrastructure and development.</p>
+            
+            <div class="clients-grid">
+                <div class="client-card">
+                    <div class="client-logo"><img src="images/test.png" alt="MMRDA Logo"></div>
+                    <h3>MMRDA</h3>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo"><img src="images/test.png" alt="Indian Railways Logo"></div>
+                    <h3>Indian Railways</h3>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo"><img src="images/test.png" alt="Konkan Railway Corporation Logo"></div>
+                    <h3>Konkan Railway Corporation</h3>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo"><img src="images/test.png" alt="Mumbai Port Trust Logo"></div>
+                    <h3>Mumbai Port Trust</h3>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo"><img src="images/test.png" alt="CIDCO Logo"></div>
+                    <h3>CIDCO</h3>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo"><img src="images/test.png" alt="Mumbai Municipal Corporation Logo"></div>
+                    <h3>Mumbai Municipal Corporation</h3>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo"><img src="images/test.png" alt="L&T Geostructure Logo"></div>
+                    <h3>L&T Geostructure</h3>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo"><img src="images/test.png" alt="More Clients"></div>
+                    <h3>And Many More...</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <h2>Message from the Managing Director</h2>
+        <div class="testimonial-content">
+            <img src="images/test.png" alt="Mr. Sachin S. Shinde">
+            <blockquote>
+                <p>“At IMRC, we are dedicated to delivering scientifically backed, data-driven solutions in material testing and geotechnical investigations. Our mission is to empower the construction, transportation, and infrastructure sectors by providing precise, reliable, and high-quality testing services. We take immense pride in our skilled team, innovative techniques, and ability to handle projects of any scale efficiently. IMRC remains committed to driving excellence, ensuring safety, and supporting sustainable development in every project we undertake.”</p>
+                <footer>Mr. Sachin S. Shinde, Managing Director</footer>
+            </blockquote>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 IMRC Labs. All rights reserved.</p>
+        <p>Plot No. G-75/76, Sector-12, Kharghar, Navi Mumbai - 410210</p>
+        <p>Branch Office: Vikhroli East, Mumbai - 400083</p>
+        <p>Phone: <a href="tel:+919819446242">+91 9819446242</a> / <a href="tel:+917972209934">+91 7972209934</a></p>
+        <p>Email: <a href="mailto:imrc.analysis@yahoo.in">imrc.analysis@yahoo.in</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

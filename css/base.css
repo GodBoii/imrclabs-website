@@ -1,0 +1,213 @@
+/* ====================================
+ * BASE STYLES
+ * ====================================
+ * 
+ * This file contains:
+ * - CSS variables (colors, fonts, shadows, animations)
+ * - Reset styles
+ * - Typography
+ * - Base element styling
+ */
+
+/* CSS Variables */
+:root {
+    /* Primary color palette */
+    --primary-color: #0055b3;
+    --primary-hover: #003d82;
+    --secondary-color: #ff6b35;
+    --secondary-hover: #e85a2a;
+    --accent-color: #3498db;
+
+    /* Neutral colors */
+    --dark-text: #2c3e50;
+    --medium-text: #34495e;
+    --light-text: #7f8c8d;
+
+    /* Background colors */
+    --bg-primary: #fff;
+    --bg-secondary: #f9f7f2; /* Cream background */
+    --bg-tertiary: #f2efe8;
+    --bg-highlight: rgba(52, 152, 219, 0.1); /* Light blue highlight */
+
+    /* Border colors */
+    --border-light: #ecf0f1;
+    --border-medium: #dcdfe6;
+    --border-dark: #bdc3c7;
+
+    /* Shadows */
+    --shadow-small: 0 2px 5px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-large: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.03);
+
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+    --font-weight-extra-bold: 700;
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-loose: 1.8;
+
+    /* Animation */
+    --transition-fast: 0.2s ease;
+    --transition-standard: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+    --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+
+    /* Border radius */
+    --radius-small: 4px;
+    --radius-medium: 8px;
+    --radius-large: 16px;
+    --radius-round: 50%;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-regular);
+    font-size: 16px;
+    line-height: var(--line-height-normal);
+    color: var(--dark-text);
+    background-color: var(--bg-primary);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    line-height: var(--line-height-tight);
+    color: var(--dark-text);
+    letter-spacing: var(--letter-spacing-tight);
+    font-weight: var(--font-weight-bold);
+}
+
+h1 { font-size: 2.75rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.125rem; }
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Text Link with animated underline */
+a.text-link {
+    position: relative;
+    display: inline-block;
+}
+
+a.text-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width var(--transition-standard);
+}
+
+a.text-link:hover::after {
+    width: 100%;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* Focus states for accessibility */
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-small);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-dark);
+    border-radius: var(--radius-small);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+        font-size: 12pt;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+}
+
+/* Hardware acceleration for smoother animations */
+.hardware-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform;
+}
+
+/* Smooth scroll behavior */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Prevent iOS tap highlight */
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Box sizing */
+*, *:before, *:after {
+    box-sizing: border-box;
+} 

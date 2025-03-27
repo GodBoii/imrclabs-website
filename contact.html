@@ -1,0 +1,101 @@
+<!--contact.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - IMRC Labs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+   <nav>
+        <div class="logo">IMRC Labs</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li>
+                <a href="services.html">Services</a>
+                <ul class="dropdown">
+                    <li class="has-submenu">
+                        <a href="#">Material Testing & Quality Assurance</a>
+                        <ul class="submenu">
+                            <li><a href="services/soil-testing.html">Soil Testing</a></li>
+                            <li><a href="services/rock-testing.html">Rock Testing</a></li>
+                            <li><a href="services/building-material.html">Building Material Testing</a></li>
+                            <li><a href="services/chemical-analysis.html">Chemical Analysis</a></li>
+                            <li><a href="services/ndt.html">Non-Destructive Testing (NDT)</a></li>
+                            <li><a href="services/concrete-road.html">Concrete & Road Testing</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Engineering & Structural Assessments</a>
+                        <ul class="submenu">
+                            <li><a href="services/pavement-runway.html">Pavement & Runway Testing</a></li>
+                            <li><a href="services/geotechnical.html">Geotechnical Investigation</a></li>
+                            <li><a href="services/structural-health.html">Structural Health Monitoring</a></li>
+                            <li><a href="services/condition-assessment.html">Condition Assessment</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="admin/login.html">Admin</a></li>
+        </ul>
+        <div class="burger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="contact-page">
+        <h2>Contact IMRC Labs</h2>
+
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="contactForm" method="post" action="contact_form.py" onsubmit="validateForm(event)">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone (optional):</label>
+                    <input type="tel" id="phone" name="phone">
+
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h3>Head Office</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Plot No. G-75/76, Sector-12, Kharghar, Navi Mumbai - 410210</p>
+                <h3>Branch Office</h3>
+                <p><i class="fas fa-map-marker-alt"></i>Vikhroli East, Mumbai - 400083</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+919819446242">+91 9819446242</a> / <a href="tel:+917972209934">+91 7972209934</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:imrc.analysis@yahoo.in">imrc.analysis@yahoo.in</a></p>
+                 <img src="images/test.png" alt="Map Placeholder">
+            </div>
+        </div>
+    </section>
+
+  <footer>
+        <p>© 2024 IMRC Labs. All rights reserved.</p>
+        <p>Plot No. G-75/76, Sector-12, Kharghar, Navi Mumbai - 410210</p>
+        <p>Branch Office: Vikhroli East, Mumbai - 400083</p>
+        <p>Phone: <a href="tel:+919819446242">+91 9819446242</a> / <a href="tel:+917972209934">+91 7972209934</a></p>
+        <p>Email: <a href="mailto:imrc.analysis@yahoo.in">imrc.analysis@yahoo.in</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

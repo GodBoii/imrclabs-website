@@ -1,0 +1,33 @@
+/* ====================================
+ * MAIN CSS FILE - IMRC LABS
+ * ====================================
+ * 
+ * This file serves as the main entry point for all CSS
+ * It imports all component CSS files in the correct order
+ */
+
+/* Main CSS File - Imports all modular CSS files */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Base styles */
+@import url('base.css');
+
+/* Layout styles */
+@import url('layout.css');
+
+/* Component styles */
+@import url('components.css');
+
+/* Navigation styles */
+@import url('navigation.css');
+
+/* Page-specific styles */
+@import url('pages.css');
+
+/* Responsive styles */
+@import url('responsive.css');
+
+/* Utilities */
+@import url('utilities.css'); 

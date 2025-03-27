@@ -1,0 +1,154 @@
+I need you to generate the complete HTML, CSS, and JavaScript code for a professional, responsive website for a material testing and research company called "IMRC Labs" (website domain: imrclabs.com). The website should be fast-loading, smooth to navigate and scroll, and visually appealing, with a focus on using icons where appropriate. The site must be fully responsive, adapting perfectly to both desktop (laptop/PC) and mobile (phone) screen sizes.  The overall theme should be a *light theme* with cream-colored backgrounds.
+
+The website will consist of the following pages: Homepage, About Us, Services (with a dropdown menu for sub-pages), Projects, Certificates, and Contact Us.
+
+**General Instructions:**
+
+*   **Languages:** Use HTML for structure, CSS for styling (including responsiveness), and JavaScript for interactive elements (like the dropdown menu, smooth scrolling, and form validation). NO frameworks like react,angular etc. For any backend functionality (specifically, the contact form email sending), assume a Python environment is available, and provide the necessary *conceptual* Python code (details below). Do not build a full Flask or Django app; just the email sending logic.
+*   **Responsiveness:** Use CSS media queries to ensure the layout and elements adjust correctly for different screen sizes. Test for both large desktop screens and small mobile screens.
+*   **Performance:** Optimize for speed. Assume all images are already optimized. Use efficient CSS and JavaScript. Minimize HTTP requests.
+*   **Icons:** Use a free icon library like Font Awesome (v5 or v6). Include the necessary `<link>` tag in the `<head>` to load Font Awesome. Choose appropriate icons for service categories, contact information, etc.
+*   **Image Placeholder:** There is an "images" folder containing a single image named "test.png". Use this "test.png" image as a placeholder *everywhere* an image is needed. I will replace these later with the correct images. Make sure the `<img>` tags have appropriate `alt` attributes describing the intended image.
+*   **Favicon:** Give the website a suitable favicon.
+*   **Styling:** Create a visually stunning and highly functional website that provides an exceptional user experience across all devices (laptops, tablets, smartphones) and various screen sizes.
+
+Design Requirements:
+
+Aesthetic:
+Develop a unique and memorable visual theme that is both beautiful and engaging.
+Utilize a sophisticated color palette, typography, and imagery that align with the website's purpose and target audience.
+Aim for an 'extraordinary' design, incorporating modern design trends and innovative visual elements.
+UI/UX:
+Prioritize intuitive navigation and a seamless user flow.
+Design clean, uncluttered interfaces that are easy to understand and use.
+Incorporate subtle and impactful animations to enhance user engagement and provide visual feedback.
+Ensure all interactive elements are responsive and perform smoothly across all devices.
+Focus on accessibility, ensuring the design is usable by individuals with disabilities.
+Provide detailed wireframes for all pages, showing the layout and element placement.
+Give examples of button styling, form design, and image placement.
+Responsiveness:
+Create a fully responsive design that adapts flawlessly to different screen sizes and orientations.
+Provide specific examples of how the layout and elements will adjust for desktop, tablet, and mobile views.
+Specify how the navigation menu will change based on screen size.
+Animations: use proper animations that work with phones and laptops. 
+Theme:  light mode, futuristic. 
+*   **Comments:** Include clear and concise comments in the HTML, CSS, and JavaScript code to explain the purpose of different sections and elements.
+*   **Structure:** Follow best practices of HTML sematic tags.
+
+**Page-Specific Instructions:**
+
+**1. Homepage (index.html):**
+
+*   **Hero Section:**
+    *   Full-width `test.png` image as a background.
+    *   Overlay text: "Your Trusted Partner in Material Testing & Research" (large heading, white or dark gray text depending on the background image).
+    *   Call-to-Action Button: "Get a Quote" (prominent, primary color, links to `/contact`).
+    *   Another Call to Action Button: "View our Services" (secondary color or outlined, links to /services).
+*   **About Us Snippet:**
+    *   Heading: "About IMRC Labs" (dark gray or primary color)
+    *   Text: (Concise, 2-3 sentences) "Established in 2013, IMRC Labs specializes in Geotechnical, Geophysical, and Geological Investigations, NDT, and material testing. We are a NABL-accredited lab committed to delivering accurate and reliable results."
+    *   Link: "Learn More" (primary color, links to `/about`).
+*   **Services Overview:**
+    *   Heading: "Our Services"
+    *   Grid layout (responsive) of at least 6 icons (Font Awesome) representing:
+        *   Soil Testing (e.g., `fa-flask`)
+        *   Rock Testing (e.g., `fa-mountain`)
+        *   Building Material Testing (e.g., `fa-building`)
+        *   Chemical Analysis (e.g., `fa-vial`)
+        *   Non-Destructive Testing (NDT) (e.g., `fa-search-plus`)
+        *   Engineering Assessments (e.g., `fa-drafting-compass`)
+    *   Each icon should have a text label below it (e.g., "Soil Testing").
+    *   Each icon/label should link to the corresponding service page (or the main `/services` page).
+*   **Why Choose IMRC Labs?:**
+    *   Heading: "Why Choose IMRC Labs?"
+    *   3-4 bullet points (use Font Awesome icons for bullets, e.g., `fa-check-circle`):
+        *   "NABL Accredited Lab (ISO/IEC 17025)"
+        *   "Over a Decade of Industry Experience"
+        *   "Advanced Testing Technology"
+        *   "Client-Focused Solutions"
+*   **Client Logos:**
+    *   Heading: "Our Valued Clients"
+    *   A horizontally scrolling area (use JavaScript if necessary) displaying `test.png` images as placeholders for client logos. Include at least 6 placeholders.
+*   **Testimonial:**
+    *   Display Testimonial from the managing director.
+*   **Footer (Present on ALL pages):**
+    *   Copyright notice: "© [Current Year] IMRC Labs. All rights reserved."
+    *   Address: "Plot No. G-75/76, Sector-12, Kharghar, Navi Mumbai - 410210" (and the Vikhroli address on a new line).
+    *   Phone: "+91 9819446242 / +91 7972209934"
+    *   Email: "imrc.analysis@yahoo.in" (make this a `mailto:` link).
+
+**2. About Us (about.html):**
+
+*   Heading: "About IMRC Labs"
+*   Use the full "About Us" text from the provided company profile.
+*   Include the "Message from the Managing Director" (use `test.png` as a placeholder for his photo).
+
+**3. Services (services.html):**
+
+*   **Main Services Page (services.html):**
+    *   Heading: "Our Services"
+    *   Brief introductory paragraph.
+    *   Visually appealing layout (grid or list) of main service categories. Each category:
+        *   Icon (Font Awesome)
+        *   Heading (e.g., "Soil Testing")
+        *   Short Description (1-2 sentences)
+        *   Link to the corresponding sub-page (e.g., "Learn More").
+
+*   **Service Sub-Pages (e.g., services/soil-testing.html, etc.):**
+    *   Create at least *three* example sub-pages:
+        *   `services/soil-testing.html`
+        *   `services/rock-testing.html`
+        *   `services/ndt.html`
+    *   Each sub-page:
+        *   Heading (e.g., "Soil Testing Services")
+        *   Detailed description.
+        *   Bulleted list of specific tests (Font Awesome icons).
+        *   `test.png` images.
+        *   Call to Action Button: "Request a Quote" (links to `/contact`).
+
+**4. Projects (projects.html):**  *NEW*
+
+*   Heading: "Our Projects"
+*   Introductory paragraph about IMRC's project experience.
+*   Create a layout (grid or list, potentially with filtering/sorting options if you want to get fancy) to display project case studies.  For this prompt, create *at least three* example project entries.
+*   **Each Project Entry Should Include:**
+    *   Project Title (e.g., "High-Speed Rail Project - Geotechnical Investigation")
+    *   Client (e.g., "Confidential Client" or, if you have permission, the actual client name)
+    *   Location (e.g., "Mumbai – Ahmedabad")
+    *   `test.png` image (placeholder for a project photo)
+    *   Short Description (3-5 sentences) of the project, the challenge, IMRC's solution, and the results.  Use information from the "Recent Projects" section of the company profile, but tailor it to this format.  Example:
+        *   **Project:** High-Speed Rail Project - Geotechnical Investigation
+        *   **Client:** Confidential Client
+        *   **Location:** Mumbai – Ahmedabad
+        *   **Description:** IMRC Labs conducted a comprehensive geotechnical investigation for a segment of the Mumbai-Ahmedabad High-Speed Rail project.  This included soil testing, borehole logging, and analysis to determine the safe bearing capacity of the soil for the proposed rail infrastructure. Our findings provided critical data for the project's foundation design, ensuring the long-term stability and safety of the high-speed rail line.
+    *   Optional:  "Read More" button linking to a dedicated project page (you don't need to create the full project pages for this prompt, just the overview entries on the `/projects` page).
+
+**5. Certificates (certificates.html):** *NEW*
+
+*   Heading: "Certificates & Accreditations"
+*   Introductory paragraph emphasizing IMRC's commitment to quality and compliance.
+*   **NABL Accreditation:**
+    *   Heading: "NABL Accreditation"
+    *   Text: "IMRC Labs is a government-approved laboratory accredited as per ISO/IEC 17025 by the National Accreditation Board for Testing and Calibration Laboratories (NABL).  This accreditation demonstrates our technical competence and commitment to providing accurate and reliable testing services."
+    *   Include `test.png` as a placeholder for the NABL logo.  Make this image prominent.
+    *   Optional:  Include a placeholder (`test.png`) for a scanned copy of the NABL certificate (with a link to download a PDF, if applicable).
+*   **Other Certifications (if any):** If IMRC has any other relevant certifications, list them here in a similar format.
+
+**6. Contact Us (contact.html):**
+
+*   Heading: "Contact IMRC Labs"
+*   **Contact Form:**
+    *   HTML `<form>` element.
+    *   Fields: Full Name (text, required), Email (email, required), Phone (tel, optional), Subject (text, required), Message (textarea, required).
+    *   Submit Button: "Send Message"
+    *   HTML5 and Javascript form validation.
+*   **Contact Information:** Addresses (both), phone numbers, email (`mailto:` link).
+*    `test.png` for a map.
+
+**Navigation Menu (ALL pages):**
+
+*   HTML `<ul>` list.
+*   Links: Home, About Us, Services (dropdown: Soil Testing, Rock Testing, NDT, others), Projects, Certificates, Contact Us.
+*   CSS and JavaScript for responsive dropdown (hamburger on mobile).
+
+**Python (Conceptual - Contact Form Email Sending):**

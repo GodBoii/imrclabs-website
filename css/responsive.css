@@ -1,0 +1,417 @@
+/*css/responsive.css*/
+/* Responsive Styles for IMRC Labs Website */
+
+/* Mobile Navigation */
+@media (max-width: 1024px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background-color: var(--bg-primary);
+        padding: 80px 30px 30px;
+        overflow-y: auto;
+        flex-direction: column;
+        box-shadow: var(--shadow-large);
+        transition: right 0.4s var(--easing-decelerate);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-links a {
+        padding: 15px 10px;
+        width: 100%;
+        font-weight: var(--font-weight-medium);
+        font-size: 1.1rem;
+    }
+
+    .dropdown {
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        border-top: none;
+        border-radius: 0;
+        border-left: 3px solid var(--primary-color);
+        background-color: var(--bg-secondary);
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        border-left: 3px solid var(--accent-color);
+        background-color: var(--bg-tertiary);
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .dropdown li.has-submenu > a::after {
+        content: '\f107'; /* Font Awesome down arrow */
+        transform: rotate(0);
+        transition: transform 0.3s ease;
+    }
+
+    .nav-links li:hover > .dropdown,
+    .dropdown li:hover > .submenu {
+        max-height: 0; /* Don't auto-expand on hover for mobile */
+    }
+
+    .dropdown.show,
+    .submenu.show {
+        max-height: 1000px; /* Enough height to show all content */
+        padding: 5px 0;
+    }
+
+    .dropdown li.has-submenu > a[aria-expanded="true"]::after {
+        transform: rotate(180deg);
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .dropdown a,
+    .submenu a {
+        padding-left: 20px;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .submenu a {
+        padding-left: 30px;
+    }
+}
+
+/* Tablet and Mobile Typography & Layout Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    body {
+        font-size: 15px;
+        line-height: 1.5;
+        background-color: var(--bg-primary);
+    }
+
+    .hero {
+        height: auto;
+        min-height: 60vh;
+    }
+
+    .hero-content {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        margin-bottom: 20px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons a {
+        margin: 8px 0;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-form,
+    .contact-info {
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    .testimonial-content {
+        padding: 25px 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .testimonial-content img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 20px;
+        border: 3px solid var(--primary-color);
+    }
+
+    .testimonial-content blockquote {
+        padding: 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .testimonial-content blockquote p {
+        margin-bottom: 15px;
+    }
+    
+    .testimonial-content blockquote footer {
+        font-size: 1rem;
+        font-weight: var(--font-weight-bold);
+        color: var(--primary-color);
+    }
+    
+    .testimonial {
+        padding: 40px 20px;
+    }
+
+    .projects-list {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .services-categories {
+        flex-direction: column;
+    }
+
+    .service-category {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .service-detail ul {
+        column-count: 1;
+    }
+
+    .main-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-service-category {
+        padding: 25px 20px;
+    }
+
+    .main-service-category p {
+        font-size: 0.95rem;
+    }
+
+    .sub-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    button, .btn, a.btn {
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: block;
+    }
+
+    .dropdown, .submenu {
+        width: 100%;
+    }
+
+    .dropdown.show, .submenu.show {
+        box-shadow: none;
+    }
+
+    /* Icons in services are smaller on mobile */
+    .service-item i, .main-service-category i, .why-choose i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    /* Logo slider adjustments */
+    .logo-slider {
+        height: 80px;
+        margin: 30px 0;
+    }
+
+    .logo-slider img {
+        height: 40px;
+        margin: 0 15px;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form input, 
+    .contact-form textarea,
+    .contact-form button {
+        margin-bottom: 15px;
+        font-size: 16px; /* Prevent zoom on mobile */
+        padding: 12px;
+    }
+
+    .services-page {
+        background-color: var(--bg-primary);
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        padding: 20px;
+        margin: 0;
+    }
+}
+
+/* Tablet Specific Adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .projects-list,
+    .main-services-grid,
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Desktop Adjustments */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    nav,
+    .burger,
+    .cta-buttons,
+    button,
+    .btn {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        background: white;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .hero,
+    .testimonial-content,
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-round);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-medium);
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+}
+
+/* Mobile Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animation for page sections */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

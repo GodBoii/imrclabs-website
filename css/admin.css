@@ -1,0 +1,311 @@
+/* ====================================
+ * ADMIN DASHBOARD STYLES
+ * ====================================
+ * 
+ * This file contains styles specific for the admin dashboard
+ */
+
+/* Admin Panels */
+.admin-panel {
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-medium);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.admin-panel h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+/* Admin Cards */
+.admin-card {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-medium);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-small);
+    position: relative;
+    border-left: 4px solid var(--primary-color);
+    transition: all var(--transition-standard);
+}
+
+.admin-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-3px);
+}
+
+.admin-card h4 {
+    margin-top: 0;
+    color: var(--dark-text);
+}
+
+.admin-card p {
+    color: var(--medium-text);
+    margin-bottom: 0;
+}
+
+/* Action Buttons */
+.action-buttons {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit, .btn-delete {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-standard);
+}
+
+.btn-edit {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-delete {
+    background-color: #e53e3e;
+    color: white;
+    opacity: 0.9;
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+.btn-delete:hover {
+    background-color: #c53030;
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Admin Tables */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background-color: var(--bg-tertiary);
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: var(--font-weight-bold);
+    color: var(--dark-text);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.admin-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.admin-table tr:hover {
+    background-color: var(--bg-secondary);
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Project Admin Section */
+.project-admin-entry {
+    display: flex;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-medium);
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-small);
+    position: relative;
+}
+
+.project-admin-image {
+    flex: 0 0 200px;
+}
+
+.project-admin-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-admin-content {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+}
+
+.project-admin-entry .btn-delete {
+    top: 10px;
+    right: 10px;
+}
+
+/* Client Admin Section */
+.client-admin-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-medium);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-small);
+    position: relative;
+    text-align: center;
+}
+
+.client-admin-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.client-admin-card h4 {
+    margin: 10px 0;
+    color: var(--dark-text);
+}
+
+.client-admin-card .btn-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Certificate Admin Section */
+.certificate-admin-card {
+    display: flex;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-medium);
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-small);
+    position: relative;
+}
+
+.certificate-admin-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.certificate-admin-card .certificate-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.certificate-admin-card .btn-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Admin Forms */
+.admin-form {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-medium);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-small);
+}
+
+.admin-form h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.admin-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: var(--font-weight-medium);
+    color: var(--dark-text);
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-small);
+    background-color: var(--bg-primary);
+    transition: all var(--transition-standard);
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+    outline: none;
+}
+
+.admin-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-small);
+    padding: 12px 15px;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-standard);
+}
+
+.admin-form button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Delete Button Always Visible */
+.delete-btn {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: var(--radius-small);
+    padding: 8px 15px;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-standard);
+    display: inline-block;
+    text-align: center;
+    opacity: 1 !important;
+    position: relative;
+}
+
+.delete-btn:hover {
+    background-color: #c53030;
+    transform: scale(1.05);
+}
+
+/* Edit Button */
+.edit-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-small);
+    padding: 8px 15px;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-standard);
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.edit-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+} 

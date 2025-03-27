@@ -1,0 +1,9 @@
+/**
+ * DEPRECATED - This file is kept for backward compatibility
+ * Please use main.css instead which imports all modular CSS files
+ */
+
+/* Main stylesheet for IMRC Labs */
+@import url('main.css');
+
+/* Add utilities specific to this page if needed */

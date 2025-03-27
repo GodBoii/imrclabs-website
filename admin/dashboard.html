@@ -1,0 +1,446 @@
+<!--admin/dashboard.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - IMRC Labs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .admin-sidebar {
+            width: 250px;
+            background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .admin-logo {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .admin-logo h2 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .admin-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .admin-menu li {
+            margin: 5px 0;
+        }
+        
+        .admin-menu a {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .admin-menu a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .admin-menu a:hover, .admin-menu a.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: white;
+        }
+        
+        .admin-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 20px;
+            background-color: var(--light-gray);
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--shadow-small);
+        }
+        
+        .admin-user {
+            display: flex;
+            align-items: center;
+        }
+        
+        .admin-user img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .admin-card {
+            background: white;
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--shadow-small);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            padding: 20px;
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--shadow-small);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .stat-card i {
+            font-size: 36px;
+            margin-right: 20px;
+            color: var(--primary-color);
+        }
+        
+        .stat-card .stat-content h3 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: var(--text-color);
+        }
+        
+        .stat-card .stat-content p {
+            margin: 5px 0 0;
+            color: var(--dark-gray);
+        }
+        
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius-small);
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2);
+            outline: none;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--border-radius-small);
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c53030;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .admin-sidebar {
+                width: 60px;
+                overflow: visible;
+            }
+            
+            .admin-sidebar:hover {
+                width: 250px;
+            }
+            
+            .admin-logo span, .admin-menu span {
+                display: none;
+            }
+            
+            .admin-sidebar:hover .admin-logo span,
+            .admin-sidebar:hover .admin-menu span {
+                display: inline;
+            }
+            
+            .admin-content {
+                margin-left: 60px;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-sidebar">
+            <div class="admin-logo">
+                <h2><i class="fas fa-flask"></i> <span>IMRC Labs</span></h2>
+            </div>
+            <ul class="admin-menu">
+                <li><a href="#" class="active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="#" data-section="messages"><i class="fas fa-envelope"></i> <span>Messages</span></a></li>
+                <li><a href="#" data-section="projects"><i class="fas fa-project-diagram"></i> <span>Projects</span></a></li>
+                <li><a href="#" data-section="clients"><i class="fas fa-users"></i> <span>Clients</span></a></li>
+                <li><a href="#" data-section="certificates"><i class="fas fa-certificate"></i> <span>Certificates</span></a></li>
+                <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+                <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
+            </ul>
+        </div>
+        
+        <div class="admin-content">
+            <div class="admin-header">
+                <h1>Dashboard</h1>
+                <div class="admin-user">
+                    <img src="../images/test.png" alt="Admin User">
+                    <div>
+                        <p>Welcome, <span id="adminName">Admin</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="admin-section">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <div class="stat-content">
+                            <h3 id="projectCount">0</h3>
+                            <p>Total Projects</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-content">
+                            <h3 id="clientCount">0</h3>
+                            <p>Clients</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-envelope"></i>
+                        <div class="stat-content">
+                            <h3 id="messageCount">0</h3>
+                            <p>New Messages</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-certificate"></i>
+                        <div class="stat-content">
+                            <h3 id="certificateCount">0</h3>
+                            <p>Certificates</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-card">
+                    <h2>Recent Activity</h2>
+                    <ul id="recentActivity">
+                        <li>Welcome to your dashboard. Recent activity will appear here.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Messages Section -->
+            <div id="messages" class="admin-section hidden">
+                <div class="admin-card">
+                    <h2>Contact Form Messages</h2>
+                    <div id="messagesList">
+                        <p>Loading messages...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projects Section -->
+            <div id="projects" class="admin-section hidden">
+                <div class="admin-card">
+                    <h2>Manage Projects</h2>
+                    <form id="addProjectForm">
+                        <div class="form-group">
+                            <label for="projectName">Project Name</label>
+                            <input type="text" id="projectName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientName">Client</label>
+                            <input type="text" id="clientName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectYear">Year</label>
+                            <input type="text" id="projectYear" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDescription">Description</label>
+                            <textarea id="projectDescription" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectImage">Project Image</label>
+                            <input type="file" id="projectImage" class="form-control" accept="image/*">
+                            <small>Max file size: 2MB. Recommended dimensions: 800x600px.</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Project</button>
+                    </form>
+                </div>
+                
+                <div class="admin-card">
+                    <h2>Existing Projects</h2>
+                    <div id="projectsList">
+                        <p>No projects added yet.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Clients Section -->
+            <div id="clients" class="admin-section hidden">
+                <div class="admin-card">
+                    <h2>Manage Clients</h2>
+                    <form id="addClientForm">
+                        <div class="form-group">
+                            <label for="clientFullName">Client Name</label>
+                            <input type="text" id="clientFullName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientDescription">Description (Optional)</label>
+                            <input type="text" id="clientDescription" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientLogo">Client Logo</label>
+                            <input type="file" id="clientLogo" class="form-control" accept="image/*">
+                            <small>Max file size: 1MB. Recommended dimensions: 200x200px.</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Client</button>
+                    </form>
+                </div>
+                
+                <div class="admin-card">
+                    <h2>Existing Clients</h2>
+                    <div id="clientsList">
+                        <p>No clients added yet.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certificates Section -->
+            <div id="certificates" class="admin-section hidden">
+                <div class="admin-card">
+                    <h2>Manage Certificates</h2>
+                    <form id="addCertificateForm">
+                        <div class="form-group">
+                            <label for="certificateName">Certificate Name</label>
+                            <input type="text" id="certificateName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="certificateDescription">Description</label>
+                            <textarea id="certificateDescription" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="certificateImage">Certificate Image</label>
+                            <input type="file" id="certificateImage" class="form-control" accept="image/*" required>
+                            <small>Max file size: 2MB. Recommended dimensions: 800x600px.</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Certificate</button>
+                    </form>
+                </div>
+                
+                <div class="admin-card">
+                    <h2>Existing Certificates</h2>
+                    <div id="certificatesList">
+                        <p>No certificates added yet.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Section -->
+            <div id="settings" class="admin-section hidden">
+                <div class="admin-card">
+                    <h2>Account Settings</h2>
+                    <form id="settingsForm">
+                        <div class="form-group">
+                            <label for="adminEmail">Email</label>
+                            <input type="email" id="adminEmail" class="form-control" value="prajwalghadge2005@gmail.com" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminPassword">New Password</label>
+                            <input type="password" id="adminPassword" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="adminPasswordConfirm">Confirm New Password</label>
+                            <input type="password" id="adminPasswordConfirm" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Settings</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

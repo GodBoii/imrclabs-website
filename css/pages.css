@@ -1,0 +1,502 @@
+/* ====================================
+ * PAGE-SPECIFIC STYLES
+ * ====================================
+ * 
+ * This file contains styles specific to individual pages:
+ * - Services page
+ * - Service detail pages
+ * - About page
+ * - Projects page
+ * - Certificates page
+ * - Contact page
+ * - Admin pages
+ */
+
+/* Services Page - Improved UI */
+.services-page {
+    padding: 50px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-page h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.services-page h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.services-page .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.services-page .service-item {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius-medium);
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: var(--shadow-small);
+    transition: var(--transition-standard);
+}
+
+.services-page .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.services-page .service-item h3 {
+    margin: 15px 0 10px;
+}
+
+.services-page .service-item p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.services-page .service-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.services-page .service-item:hover i {
+    transform: scale(1.1);
+}
+
+/* Service Detail Page */
+.service-detail {
+    padding: 50px 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-small);
+}
+
+.service-detail h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.service-detail h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.service-detail img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius-medium);
+    margin: 20px 0;
+    box-shadow: var(--shadow-small);
+    transition: transform 0.5s ease;
+}
+
+.service-detail img:hover {
+    transform: scale(1.02);
+}
+
+.service-detail ul {
+    margin: 25px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.service-detail ul li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.service-detail ul li:hover {
+    transform: translateX(5px);
+}
+
+.service-detail ul li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.service-detail .btn {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Projects Page */
+.projects-page {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-small);
+}
+
+/* Certificates Page */
+.certificates-page {
+    padding: 50px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.certificate-card {
+    background: white;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-medium);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.certificate-image {
+    margin-bottom: 15px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: var(--border-radius-small);
+}
+
+.certificate-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.certificate-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.certificate-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.certificate-card p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.certificate-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.certificate-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: var(--border-radius-medium);
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    position: relative;
+}
+
+.certificate-modal-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.certificate-modal-content h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: var(--primary-hover);
+}
+
+/* Responsive adjustments for certificates grid */
+@media (max-width: 992px) {
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certificate-modal-content {
+        padding: 15px;
+        width: 95%;
+    }
+}
+
+.accreditation {
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: var(--border-radius-medium);
+    background-color: #f9f9f9;
+    box-shadow: var(--shadow-small);
+}
+
+.accreditation img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--shadow-small);
+    transition: transform 0.3s ease;
+}
+
+.accreditation img:hover {
+    transform: scale(1.02);
+}
+
+.accreditation:first-of-type img:first-of-type {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* Contact Page */
+.contact-page {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-small);
+}
+
+.contact-info h3 {
+    margin-top: 0;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+}
+
+.contact-info img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-small);
+}
+
+/* Admin Login/Dashboard */
+.admin-login label, .admin-dashboard label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+.admin-login input, .admin-dashboard input, .admin-dashboard textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius-small);
+    box-sizing: border-box;
+}
+
+/* Clients page */
+.clients-page {
+    padding: 50px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.clients-page .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.clients-page .client-card {
+    padding: 25px;
+}
+
+.clients-page .client-card p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+/* Admin dashboard components */
+.message-card {
+    background: white;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-small);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--medium-gray);
+    transition: all 0.3s ease;
+}
+
+.message-card.unread {
+    border-left-color: var(--primary-color);
+    background: rgba(0, 74, 173, 0.05);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.message-date {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+.message-body {
+    padding: 15px 0;
+    border-top: 1px solid var(--medium-gray);
+    border-bottom: 1px solid var(--medium-gray);
+    margin: 10px 0;
+}
+
+.message-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.projects-admin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-admin-entry {
+    display: flex;
+    background: white;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-small);
+    overflow: hidden;
+}
+
+.project-admin-image {
+    flex: 0 0 200px;
+}
+
+.project-admin-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-admin-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.clients-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.client-admin-card {
+    background: white;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-small);
+    padding: 20px;
+    text-align: center;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.certificate-card {
+    background: white;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-small);
+    padding: 20px;
+    text-align: center;
+}
+
+.certificate-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .project-admin-entry {
+        flex-direction: column;
+    }
+    
+    .project-admin-image {
+        flex: 0 0 auto;
+        height: 200px;
+    }
+    
+    .clients-admin-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+} 
