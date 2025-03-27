@@ -13,6 +13,43 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize any interactive elements
     initInteractiveElements();
+    
+    // Get all scroll control buttons
+    const scrollBtns = document.querySelectorAll('.scroll-btn');
+    
+    scrollBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Find the closest scroll container
+            const scrollContainer = this.closest('.container').querySelector('.scroll-container');
+            // Determine scroll direction and amount
+            const direction = this.dataset.direction;
+            const scrollAmount = scrollContainer.clientWidth * 0.75; // Scroll 75% of container width
+            
+            if (direction === 'left') {
+                scrollContainer.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                scrollContainer.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Add mouse wheel scrolling for horizontal containers
+    const scrollContainers = document.querySelectorAll('.scroll-container');
+    
+    scrollContainers.forEach(container => {
+        container.addEventListener('wheel', function(e) {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                this.scrollLeft += e.deltaY;
+            }
+        }, { passive: false });
+    });
 });
 
 /**

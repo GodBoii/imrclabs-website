@@ -55,6 +55,46 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Developer Credits Styles */
+.developer-credits {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.developer-credits p {
+    margin-bottom: 8px;
+}
+
+.developer-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.developer-contact a {
+    color: var(--medium-gray);
+    transition: color var(--transition-speed);
+    white-space: nowrap;
+}
+
+.developer-contact a:hover {
+    color: white;
+}
+
+.developer-contact i {
+    margin-right: 5px;
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .developer-contact {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
 @media (max-width: 480px) {
     .footer-content {
         grid-template-columns: 1fr;

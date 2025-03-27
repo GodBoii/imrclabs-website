@@ -1,0 +1,135 @@
+/* Horizontal Scrolling Components */
+
+/* Common styles for horizontal scrolling containers */
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--light-gray);
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 0;
+  position: relative;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+/* Client logos in horizontal scroll */
+.clients-scroll {
+  display: flex;
+  padding: 10px 0;
+}
+
+.client-logo-scroll {
+  min-width: 200px;
+  height: 120px;
+  margin-right: 20px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: all var(--transition-speed);
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+}
+
+.client-logo-scroll:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Projects in horizontal scroll */
+.projects-scroll {
+  display: flex;
+  padding: 10px 0;
+}
+
+.project-card-scroll {
+  min-width: 300px;
+  margin-right: 20px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background-color: white;
+  white-space: normal;
+}
+
+.project-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+/* Scroll controls */
+.scroll-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.scroll-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all var(--transition-speed);
+}
+
+.scroll-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .client-logo-scroll {
+    min-width: 180px;
+    height: 100px;
+  }
+  
+  .project-card-scroll {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-logo-scroll {
+    min-width: 160px;
+    height: 90px;
+  }
+  
+  .project-card-scroll {
+    min-width: 260px;
+  }
+} 
